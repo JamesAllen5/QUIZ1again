@@ -24,51 +24,50 @@ import csv
 
 
 # create a file object to open the file in read mode
-students = open("students.csv", "r")
+file_obj=open("students.txt","r")
 
 
 # create a csv object from the file object
-outfile = open("studentgpa.csv", "a")
+csv_obj = csv.reader(students, delimiter=",")
 
 #skip the header row
-student_file = csv.reader(students, delimiter=",")
+next(csv_obj)
 
 #create an outfile object for the pocessed record
 
 
 
 #create a new dictionary named 'student_dict'
-student_dict={"student_gpas":str(["student_id"])+','+str(["firstname"])+','+str(["lastname"])+','+str(["city"])+','+str(["state"])+','+
-str(["major"])+','+str(["classification"])+','+str(["gpa"])+"\n"}
+student_dict={}
 
 
 #use a loop to iterate through each row of the file
-while l in student_dict:
+for rec in csv_obj:
 
     #check if the GPA is below 3.0. If so, write the record to the outfile
-         if student_dict{["student_gpas":["gpa"]} < 3.0:
-             print(student_dict{"student_gpas"})
+         if float(rec[8]) < 3.0:
+             
 
 
 
 
     # append the record to the dictionary with the student id as the Key
     # and the value as the GPA
-    
+    student_dict[rec[0]] = float(rec[8])
 
 
 
 
 
 #print the entire dictionary
-print(student_dict{})
+print(student_dict)
 
 #Print the student id 
-print(student_dict{["student_id"]})
+print("Student ID:", "567890123")
 
 #print out the corresponding GPA from the dictionary
 
-print(student_dict{["gpa"]})
+print("GPA:", student_dict["567890123"])
 
 #close the outfile
 
